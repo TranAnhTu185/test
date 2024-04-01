@@ -1,0 +1,326 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap");
+*, *::before, *::after {
+    padding: 0;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 90deg;
+    inherits: true;
+  }
+  
+  @property --gradX {
+    syntax: '<percentage>';
+    initial-value: 50%;
+    inherits: true;
+  }
+  
+  @property --gradY {
+    syntax: '<percentage>';
+    initial-value: 0%;
+    inherits: true;
+  }
+:root {
+    --boxSize: 1em;
+    --d: 2500ms;
+    --speed: 18s;
+    --rotateSceneX: -0deg;
+    --rotateSceneY: 0deg;
+
+    --angle: 90deg;
+	--gradX: 100%;
+	--gradY: 50%;
+	--c1: rgb(251, 137, 224);
+	--c2: rgba(247, 174, 241, 0.4);
+}
+body {
+    font-family: 'Berkshire Swash', cursive;
+    background-color: #aaa;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    perspective: 100em;
+    overflow: hidden;
+}
+.cell {
+    width: 100%;
+    height: 100%;
+}
+.cell:nth-child(10n + 1):hover ~ .scene {
+    --rotateSceneY: -63deg;
+}
+.cell:nth-child(n + 1):nth-child(-n + 10):hover ~ .scene {
+    --rotateSceneX: 36deg;
+}
+.cell:nth-child(10n + 2):hover ~ .scene {
+    --rotateSceneY: -49deg;
+}
+.cell:nth-child(n + 11):nth-child(-n + 20):hover ~ .scene {
+    --rotateSceneX: 28deg;
+}
+.cell:nth-child(10n + 3):hover ~ .scene {
+    --rotateSceneY: -35deg;
+}
+.cell:nth-child(n + 21):nth-child(-n + 30):hover ~ .scene {
+    --rotateSceneX: 20deg;
+}
+.cell:nth-child(10n + 4):hover ~ .scene {
+    --rotateSceneY: -21deg;
+}
+.cell:nth-child(n + 31):nth-child(-n + 40):hover ~ .scene {
+    --rotateSceneX: 12deg;
+}
+.cell:nth-child(10n + 5):hover ~ .scene {
+    --rotateSceneY: -7deg;
+}
+.cell:nth-child(n + 41):nth-child(-n + 50):hover ~ .scene {
+    --rotateSceneX: 4deg;
+}
+.cell:nth-child(10n + 6):hover ~ .scene {
+    --rotateSceneY: 7deg;
+}
+.cell:nth-child(n + 51):nth-child(-n + 60):hover ~ .scene {
+    --rotateSceneX: -4deg;
+}
+.cell:nth-child(10n + 7):hover ~ .scene {
+    --rotateSceneY: 21deg;
+}
+.cell:nth-child(n + 61):nth-child(-n + 70):hover ~ .scene {
+    --rotateSceneX: -12deg;
+}
+.cell:nth-child(10n + 8):hover ~ .scene {
+    --rotateSceneY: 35deg;
+}
+.cell:nth-child(n + 71):nth-child(-n + 80):hover ~ .scene {
+    --rotateSceneX: -20deg;
+}
+.cell:nth-child(10n + 9):hover ~ .scene {
+    --rotateSceneY: 49deg;
+}
+.cell:nth-child(n + 81):nth-child(-n + 90):hover ~ .scene {
+    --rotateSceneX: -28deg;
+}
+.cell:nth-child(10n + 10):hover ~ .scene {
+    --rotateSceneY: 63deg;
+}
+.cell:nth-child(n + 91):nth-child(-n + 100):hover ~ .scene {
+    --rotateSceneX: -36deg;
+}
+.scene {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform-style: preserve-3d;
+    transform: translateZ(0em) rotateX(var(--rotateSceneX)) rotateY(var(--rotateSceneY));
+    transition: transform 0.5s;
+    z-index: -1;
+}
+.sign {
+    position: absolute;
+    top: -14.25em;
+    left: -26em;
+    width: 52em;
+    height: 31em;
+    background-color: #fff;
+    transform-style: preserve-3d;
+}
+.sign_segment {
+    position: absolute;
+    top: 0;
+    width: 2em;
+    height: 31em;
+    transform: translateX(-50%) translateZ(1em);
+    transform-style: preserve-3d;
+}
+.sign_segment:nth-child(1) {
+    left: 3em;
+    --ad: 0;
+}
+.sign_segment:nth-child(2) {
+    left: 5em;
+    --ad: 1;
+}
+.sign_segment:nth-child(3) {
+    left: 7em;
+    --ad: 2;
+}
+.sign_segment:nth-child(4) {
+    left: 9em;
+    --ad: 3;
+}
+.sign_segment:nth-child(5) {
+    left: 11em;
+    --ad: 4;
+}
+.sign_segment:nth-child(6) {
+    left: 13em;
+    --ad: 5;
+}
+.sign_segment:nth-child(7) {
+    left: 15em;
+    --ad: 6;
+}
+.sign_segment:nth-child(8) {
+    left: 17em;
+    --ad: 7;
+}
+.sign_segment:nth-child(9) {
+    left: 19em;
+    --ad: 8;
+}
+.sign_segment:nth-child(10) {
+    left: 21em;
+    --ad: 9;
+}
+.sign_segment:nth-child(11) {
+    left: 23em;
+    --ad: 10;
+}
+.sign_segment:nth-child(12) {
+    left: 25em;
+    --ad: 11;
+}
+.sign_segment:nth-child(13) {
+    left: 27em;
+    --ad: 12;
+}
+.sign_segment:nth-child(14) {
+    left: 29em;
+    --ad: 13;
+}
+.sign_segment:nth-child(15) {
+    left: 31em;
+    --ad: 14;
+}
+.sign_segment:nth-child(16) {
+    left: 33em;
+    --ad: 15;
+}
+.sign_segment:nth-child(17) {
+    left: 35em;
+    --ad: 16;
+}
+.sign_segment:nth-child(18) {
+    left: 37em;
+    --ad: 17;
+}
+.sign_segment:nth-child(19) {
+    left: 39em;
+    --ad: 18;
+}
+.sign_segment:nth-child(20) {
+    left: 41em;
+    --ad: 19;
+}
+.sign_segment:nth-child(21) {
+    left: 43em;
+    --ad: 20;
+}
+.sign_segment:nth-child(22) {
+    left: 45em;
+    --ad: 21;
+}
+.sign_segment:nth-child(23) {
+    left: 47em;
+    --ad: 22;
+}
+.sign_segment:nth-child(24) {
+    left: 49em;
+    --ad: 23;
+}
+/* .sign_segment::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0.5em;
+    width: 1em;
+    height: 100%;
+    background-image: linear-gradient(90deg, #333, #aaa, #333);
+    transform: rotateY(calc(var(--rotateSceneY) * -1));
+} */
+
+.sign_segments {
+	border: 0.35rem solid;
+    width: 100%;
+    height: 100%;
+	border-image: conic-gradient(from var(--angle), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30;
+	animation: borderRotate var(--d) linear infinite forwards;
+}
+
+.sign_segment > div {
+    position: absolute;
+    top: 0.5em;
+    left: 0.05em;
+    width: 1.9em;
+    height: 30em;
+    animation: signflip var(--speed) cubic-bezier(0.5, 0, 0.7, 1.5) infinite;
+    overflow: hidden;
+    background-position: calc(var(--ad) / 23 * 100%) 50%;
+    text-align: center;
+    background-repeat: no-repeat;
+}
+.sign_segment > div:nth-child(1) {
+    background-image: url("./img/anh6.jpeg");
+    animation-delay: calc((var(--speed) * 0) - var(--speed) + (var(--ad) * 0.1s));
+    box-shadow: 0 0 1em #0007 inset;
+    background-size: 49em 49em;
+    background-position: calc(var(--ad) / 23* 100%) 64%;
+}
+.sign_segment > div:nth-child(1)::after {
+    background-image: inherit;
+}
+.sign_segment > div:nth-child(2) {
+    background-image: url("./img/anh9.jpeg");
+    animation-delay: calc((var(--speed) * -0.3333333333) - var(--speed) + (var(--ad) * 0.1s));
+    box-shadow: 0 0 1em #0007 inset;
+    background-size: 59em 56em;
+    background-position: calc(var(--ad) / 23* 100%) 100%;
+}
+.sign_segment > div:nth-child(2)::after {
+    background-image: inherit;
+}
+.sign_segment > div:nth-child(3) {
+    background-image: url("./img/anh7.jpeg");
+    animation-delay: calc((var(--speed) * -0.6666666667) - var(--speed) + (var(--ad) * 0.1s));
+    box-shadow: 0 0 1em #0007 inset;
+    background-size: 59em 56em;
+    background-position: calc(var(--ad) / 23* 100%) 100%;
+}
+.sign_segment > div:nth-child(3)::after {
+    background-image: inherit;
+}
+.sign_segment > div:nth-child(4) {
+    background-image: url("./img/anh1.jpeg");
+    animation-delay: calc((var(--speed) * -0.6666666667) - var(--speed) + (var(--ad) * 0.1s));
+    box-shadow: 0 0 1em #0007 inset;
+    background-size: 52em 58em;
+    background-position: calc(var(--ad) / 23* 100%) 90%;
+}
+.sign_segment > div:nth-child(5)::after {
+    background-image: inherit;
+}
+@keyframes signflip {
+    0%, 26.666% {
+        transform: rotateY(0deg) translateZ(0.53em);
+    }
+    33.333%, 60% {
+        transform: rotateY(120deg) translateZ(0.53em);
+    }
+    66.666%, 93.333% {
+        transform: rotateY(240deg) translateZ(0.53em);
+    }
+    100% {
+        transform: rotateY(360deg) translateZ(0.53em);
+    }
+}
+
+@keyframes borderRotate {
+	100% {
+		--angle: 420deg;
+	}
+}
